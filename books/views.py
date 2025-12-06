@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from rest_framework import generics
+from .models import Book
+from .serializers import BookSerializer
 
 # Create your views here.
 def homepage(request):
@@ -24,3 +27,11 @@ def edit_book(request):
 def delete_book(request):
 
     return render(request,'books/add_edit_book.html')
+
+class BookList(generics.ListCreateAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+
+class BookDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
