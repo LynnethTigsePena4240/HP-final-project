@@ -1,11 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{name}}</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block header %}
+Book Detail
+{% endblock %}
+
+{% block content %}
+
+
+<div class="card-body">
+    <h4 class="card-title">
+        {{ book.title }}
+    </h4>
+
+    <p class="card-text">
+        <strong>Author:</strong> 
+        {{ book.author }}
+    </p>
+
+    <p class="card-text">
+        <strong>Year:</strong><br>
+        {{ book.year }}
+    </p>
+
+    <p class="card-text">
+        <strong>Rating:</strong> 
+        {{ book.rating }}
+    </p>
+
+     <p class="card-text">
+        <strong>Description:</strong> 
+        {{ book.description }}
+    </p>
+
+
+    <p> 
+        <a href= "{% url 'edit_book' book.id %}" > Edit </a>
+    </p>
+
+    <p> 
+        <a href= "{% url 'delete_book' book.id %}" > Delete </a>
+    </p>
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+        {% comment %} fields = ['title','author','year','rating','description'] {% endcomment %}

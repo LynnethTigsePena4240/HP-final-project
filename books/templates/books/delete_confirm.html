@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{name}}</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block header %}
+Delete Book
+{% endblock %}
+
+{% block content %}
+<h2>Are you sure you want to delete "{{ book.title }}"?</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+    <a href="{% url 'book_list' %}">Cancel</a>
+</form>
+{% endblock %}
