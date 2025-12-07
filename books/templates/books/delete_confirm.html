@@ -10,6 +10,6 @@ Delete Book
 <form method="POST">
     {% csrf_token %}
     <button type="submit">Yes, delete</button>
-    <a href="{% url 'book_list' %}">Cancel</a>
+    <a href="{% url 'homepage' %}">Cancel</a>
 </form>
 {% endblock %}
